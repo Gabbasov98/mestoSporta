@@ -1,0 +1,424 @@
+<!DOCTYPE html> <html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036" type="text/javascript"></script>
+    <title>Главная</title>
+</head>
+
+
+
+<style>
+    .wrapper a {
+        font-size: 30px;
+        text-transform: capitalize;
+    }
+
+    .wrapper button {
+        margin-bottom: 25px;
+        width: 300px;
+        height: 45px;
+    }
+</style>
+
+<body>
+
+    <div class="wrapper" style="padding: 50px;">
+        <a href="index.html" style="display: block; margin-bottom: 20px;">
+            Главная
+        </a>
+        <a href="podbor.html" style="display: block; margin-bottom: 20px;">
+            Подбор
+        </a>
+        <a href="letter.html" style="display: block; margin-bottom: 20px;">
+            Письмо
+        </a>
+        <a href="letter2.html" style="display: block; margin-bottom: 20px;">
+            Письмо 2
+        </a>
+        <a href="letter3.html" style="display: block; margin-bottom: 20px;">
+            Письмо 3
+        </a>
+        <a href="letter4.html" style="display: block; margin-bottom: 20px;">
+            Письмо 4
+        </a>
+
+
+
+
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="cityModal">
+            Выберите город
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="loginModal">
+            Вход
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="regModal">
+            Регистрация
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="passModal">
+            Сброс пароля
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="personalModal">
+            Персональное меню
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="consultModal">
+            Консультация
+        </button>
+        <button style="border: 2px solid #000;margin-bottom: 20px;" data-modal="telegramModal">
+            Консультация Telegram
+        </button>
+
+    </div>
+
+    <div class="modal" id="cityModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Выбор города</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="city-select">
+                <div class="modal__title display2 medium-weight">Выберите город</div>
+                <div class="city-select__items">
+                    <div class="city-select__item display3">Москва и область</div>
+                    <div class="city-select__item display3">Санкт-Петербург</div>
+                    <div class="city-select__item display3">Сочи</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="loginModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Вход</div>
+                <div class="auth__desc medium-text">Войдите с помощью вашей почты или логина</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Электронная почта / Логин</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Ваш пароль</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Войти</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Зарегистрироваться</button>
+
+                        <button type="button" class="auth__form-forgot small-text">Забыли пароль?</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="regModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Регистрация</div>
+                <div class="auth__desc medium-text">Пройдите регистрацию</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Логин</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="email">
+                        <label>Электронная почта</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Пароль</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Повтор пароля</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Зарегистрироваться</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Войти</button>
+
+                        <div class="auth__form-hint small-text">
+                            Продолжая, вы принимаете <a href="">условия</a> передачи
+                            информации и <a href="">пользовательского соглашения</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="passModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Сброс пароля</div>
+                <div class="auth__desc medium-text">Укажите логин или адрес электронной почты для сброса нового пароля.</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Электронная почта / Логин</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Отправить пароль</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="personalModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Персональное меню</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="personal">
+                <div class="personal__img img-upload">
+                    <input type="file">
+                    <label></label>
+                </div>
+
+                <div class="personal__img img-upload">
+                    <input type="file">
+                    <label></label>
+
+                    <div class="img-upload__result">
+                        <img src="img/avatar.webp" alt="">
+                        <button class="img-upload__remove mbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" transform="translate(12 12)" fill="#fff" fill-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="personal__title display2 medium-weight">Eco-wheel</div>
+                <div class="personal__links">
+                    <a href="" class="personal__link display3">Настройки профиля</a>
+                    <a href="" class="personal__link display3">Избранное</a>
+                    <a href="" class="personal__link personal__logout display3">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="consultModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Фитнес-клуб AR City Gym на Мельникова</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Получить консультацию</div>
+                <div class="auth__desc medium-text">Для получения консультации заполните и отправьте
+                    заявку, менеджер данного места свяжется с вами
+                    в ближайшее рабочее время.</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Имя</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="tel">
+                        <label>Телефон</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Заказать консультацию</button>
+                        <button data-modal="telegramModal" type="button" class="_telegram auth__form-btn mbtn mbtn-black medium-weight medium-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18.52" height="18.52" viewBox="0 0 18.52 18.52">
+                                <path d="M9.26,0A9.26,9.26,0,1,1,0,9.26,9.26,9.26,0,0,1,9.26,0Z" fill="#fff"/>
+                                <path d="M5.352,10.709l8.928-3.442c.414-.15.776.1.642.728h0L13.4,15.155c-.113.508-.414.631-.836.392l-2.315-1.706L9.135,14.917a.584.584,0,0,1-.467.228l.164-2.356,4.291-3.876c.187-.164-.042-.257-.288-.093l-5.3,3.338-2.286-.713c-.5-.157-.507-.5.1-.735Z" transform="translate(-1.115 -1.649)"/>
+                            </svg>
+                            <span>Консультация через Telegram</span>
+                        </button>
+                    </div>
+
+
+                </form>
+                <div class="auth__form-hint small-text">
+                    Нажимая на кнопку «Заказать консультацию», вы <br>
+                    принимаете <a href="">условия передачи информации</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="telegramModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Фитнес-клуб AR City Gym на Мельникова</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Получить консультацию</div>
+                <div class="auth__desc medium-text">
+                    Если вы не хотите, чтобы вам звонили, вы можете
+                    получить консультацию через месенджер Telegram
+                </div>
+
+                <div class="auth__telegram">
+                    <img src="img/telegram.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--  -->
+    <script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+<!--<script type="text/javascript">-->
+<!--    ymaps.ready(init);-->
+<!--    const coord = [54.017310, 38.074447]-->
+
+<!--    function init() {-->
+<!--        var myMap = new ymaps.Map("map", {-->
+<!--            center: coord,-->
+<!--            zoom: 15-->
+<!--        });-->
+
+<!--        var myPlacemark = new ymaps.Placemark(coord, null, {-->
+<!--            iconLayout: 'default#image',-->
+<!--            iconImageHref: "img/pin.svg",-->
+<!--            iconImageSize: [48, 59],-->
+<!--            // iconImageOffset: [-15, -44]-->
+<!--        });-->
+<!--        myMap.geoObjects.add(myPlacemark);-->
+<!--        myMap.behaviors.disable('scrollZoom');-->
+
+<!--    }-->
+<!--</script>-->
+
+</body>
+
+</html>

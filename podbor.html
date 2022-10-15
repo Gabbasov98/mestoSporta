@@ -1,0 +1,1451 @@
+<!DOCTYPE html> <html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036" type="text/javascript"></script>
+    <title>Подбор мест</title>
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+    <div class="header__inner">
+        <a href="/" class="header__logo logo">
+            <img src="img/logo.svg" alt="">
+        </a>
+        <button class="header__burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header__mob">
+            <div class="header__city">
+                <button data-modal="cityModal" class="city__toggle small-text">
+                    <span>Москва</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9.917" height="5.601" viewBox="0 0 9.917 5.601">
+                        <path d="M8.8,1,5.082,4.714a.26.26,0,0,1-.367,0L1,1" transform="translate(0.061 0.061)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                </button>
+
+                <div class="city-ask city-ask--activee">
+                    <div class="city-ask__top">
+                        <div class="city-ask__title display3 medium-weight">Ваш город — Москва</div>
+                        <div class="city-ask__desc medium-text">Московская область</div>
+                    </div>
+                    <div class="city-ask__bottom">
+                        <button data-modal="cityModal" class="city-ask__btn _change-city mbtn mbtn-transparent">Изменить</button>
+                        <button class="city-ask__btn _confirm-city mbtn mbtn-black">Да, все верно</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header__buttons">
+                <button class="header__btn header__reg mbtn mbtn-black small-text medium-weight">Регистрация</button>
+                <button class="header__btn header__login mbtn mbtn-transparent small-text medium-weight">Войти</button>
+            </div>
+
+            <nav class="nav">
+                <a href="" class="nav__link display3">О проекте</a>
+                <a href="" class="nav__link display3">Партнерам</a>
+                <a href="" class="nav__link display3">Реклама</a>
+                <a href="" class="nav__link display3">Обратная связь</a>
+                <a href="" class="nav__link display3">Пользовательское соглашение</a>
+                <a href="" class="nav__link display3">Добавить место</a>
+            </nav>
+
+            <div class="header__socials">
+                <div class="header__socials-title medium-weight">Связаться с нами</div>
+                <a href="" class="header__socials-link display3">info@sportfind.ru</a>
+                <div class="header__socials-desc display3">Мы в Telegram</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </header>
+        <main class="content">
+
+            <section class="podbor">
+                <div class="container">
+                    <div class="podbor__top _show">
+                        <div class="podbor__progress">
+                            <span style="width: 0%;" class="podbor__progress-fill"></span>
+                        </div>
+                        <div class="podbor__nums">
+                            <div class="podbor__percent display3">0</div>
+                            <div class="podbor__count podbor__count--active display3">
+                                <span id="odometer" class="odometer _animate-num">3000</span> мест
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz _show">
+                        <div class="podbor__content">
+                            <div data-step="1" class="podbor__step podbor__step--active">
+                                <div class="podbor__title display2 medium-weight">Город</div>
+<div class="podbor__desc display3">Выберите город из предложенного списка.</div>
+
+<div class="podbor__form">
+    <div class="podbor-radios">
+        <div class="podbor-radios__item">
+            <input checked type="radio" name="city">
+            <label>Москва и область</label>
+        </div>
+        <div class="podbor-radios__item">
+            <input type="radio" name="city">
+            <label>Санкт-Петербург</label>
+        </div>
+        <div class="podbor-radios__item">
+            <input type="radio" name="city">
+            <label>Сочи</label>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="2" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Категория</div>
+<div class="podbor__desc display3">Необходимо определиться с категорией. <br> Так мы сможем релевантно подобрать места.</div>
+
+<div class="podbor__form">
+    <div class="podbor-radios">
+        <div class="podbor-radios__item">
+            <input checked type="radio" name="category">
+            <label>Фитнес-клуб</label>
+        </div>
+        <div class="podbor-radios__item">
+            <input type="radio" name="category">
+            <label>Студия</label>
+        </div>
+        <div class="podbor-radios__item">
+            <input type="radio" name="category">
+            <label>Бассейн</label>
+        </div>
+        <div class="podbor-radios__item">
+            <input type="radio" name="category">
+            <label>Клуб единоборств</label>
+        </div>
+        <div class="podbor-radios__item">
+            <input type="radio" name="category">
+            <label>Спортивная секция</label>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="3" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Направление</div>
+<div class="podbor__desc display3">Чтобы занятия спортом стали максимально эффективными и не <br> были в тягость, важно выбрать направление занятий.</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название направления</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Тренажерный зал</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Групповые программы</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Йога</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Кардиотренинг</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Персональный тренинг</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Единоборства</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Онлайн-тренировки</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Игровой спорт</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Танцы</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Водные занятия</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Outdoor занятия</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Игровой спорт</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Детские занятия</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Тренажерный зал</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Групповые программы</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Йога</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="4" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Вид занятий</div>
+<div class="podbor__desc display3">Это может быть все, что угодно, от йоги и стретчинга до бокса <br> и функциональных тренировок.</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название занятия</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Аквааэробика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Акробатика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аэробика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аэромикс</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аэростретчинг</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Боди-балет</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Вог</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Гимнастика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Гимнастика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Аквааэробика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Акробатика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аэробика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аэромикс</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аэростретчинг</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Боди-балет</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Вог</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Гимнастика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Гимнастика</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="5" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Залы и зоны</div>
+<div class="podbor__desc display3">Это уровни интенсивности, в которых необходимо выполнять <br>те или иные тренировки для достижения лучшего тренировочного эффекта.</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название зала или зоны</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Аквазона</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал аэробики</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал боевых искусств</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал бокса</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал кикбоксинга</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал функционального тренинга</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал Kinesis</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зона кардиотренажеров</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал аэробики</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал боевых искусств</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал бокса</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал кикбоксинга</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал функционального тренинга</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зал Kinesis</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Зона кардиотренажеров</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="6" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Бассейн</div>
+<div class="podbor__desc display3">
+    Необходим для профилактики и лечения множества серьёзных заболеваний, <br>
+    для похудения и закаливания, а также поддержания тонуса.
+</div>
+
+<div class="podbor__form">
+    <div class="podbor-radios">
+        <div class="podbor-radios__item">
+            <input checked type="radio" name="pool">
+            <label>Есть</label>
+        </div>
+        <div class="podbor-radios__item">
+            <input type="radio" name="pool">
+            <label>Нет</label>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="7" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Банный комплекс</div>
+<div class="podbor__desc display3">
+    Различные услуги банного комплекса, помогут отдохнуть и <br>
+    восстановиться после тренировки.
+</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название услуги</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Биосауна</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Гидромассаж</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Грот/криосауна</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Джакузи</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Инфракрасная сауна</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Купель</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Парение в кедровой бочке</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Парение по меду</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Грот/криосауна</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Джакузи</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Инфракрасная сауна</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Купель</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Парение в кедровой бочке</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Парение по меду</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="8" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">SPA & красота</div>
+<div class="podbor__desc display3">
+    Spa-процедуры и специальные услуги, направленные <br>
+    на поддержание фитнес-эффекта и красоты.
+</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название услуги</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Спа-центр</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Косметология</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Салон красоты</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Брови и ресницы</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Макияж</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Солярий</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Уход за телом</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Эпиляция</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Салон красоты</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Брови и ресницы</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Макияж</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Солярий</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Уход за телом</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Эпиляция</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="9" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Спортивная медицина</div>
+<div class="podbor__desc display3">
+    Диагностика и лечение спортивных травм, массажи, <br>
+    фитнес-тестирование и многое другое.
+</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название услуги</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Функциональная диагностика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Консультация врача</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Фитнес-тестирование</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Анализ состава тела</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Нутрициолог</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аппаратный массаж</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Диагностика волос</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Массаж лимфодренажный</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Анализ состава тела</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Нутрициолог</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аппаратный массаж</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Диагностика волос</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Массаж лимфодренажный</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="10" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Специальные программы</div>
+<div class="podbor__desc display3">
+    Выбор необходимо сделать, исходя из личных <br>
+    предпочтений, а также состояния здоровья и уровня подготовки.
+</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название услуги</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Занятия для беременных</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Общеукрепляющие программы</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Восстановление после родов</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Лечебная гимнастика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>50+</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Велосипедные прогулки</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Реабилитация</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Здоровая спина</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Восстановление после родов</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Лечебная гимнастика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>50+</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Велосипедные прогулки</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Реабилитация</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Здоровая спина</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                            <div data-step="11" class="podbor__step">
+                                <div class="podbor__title display2 medium-weight">Прочие услуги</div>
+<div class="podbor__desc display3">
+    Дополнительные услуги и преимущества.
+</div>
+
+<div class="podbor__form">
+    <div class="search">
+        <fieldset class="search__input form-group">
+            <input type="text">
+            <label>Название услуги</label>
+        </fieldset>
+
+        <div class="podbor-checks">
+            <div class="podbor-checks__item check">
+                <input checked type="checkbox">
+                <label>Парковка</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Сейфовые ячейки</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Аренда шкафчика</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Заморозка карты</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Полотенце</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Wi-Fi</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Фито-бар</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Онлайн оплата</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Полотенце</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Wi-Fi</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Фито-бар</label>
+            </div>
+            <div class="podbor-checks__item check">
+                <input type="checkbox">
+                <label>Онлайн оплата</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div>
+                        </div>
+
+                        <div class="podbor__nav">
+                            <button class="podbor__btn _prev-step mbtn mbtn-gray-outline medium-weight medium-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="14.828" viewBox="0 0 16.414 14.828">
+                                    <path d="M15.75,9h-14m0,0,6-6m-6,6,6,6" transform="translate(-0.336 -1.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                </svg>
+                                <span>Назад</span>
+                            </button>
+                            <button class="podbor__btn _next-step mbtn mbtn-primary medium-weight medium-text">
+                                <span>Продолжить</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.414" height="14.828" viewBox="0 0 16.414 14.828">
+                                    <path d="M1.75,9h14m0,0-6-6m6,6-6,6" transform="translate(-0.75 -1.586)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="save">
+                        <div class="podbor__content">
+                            <div class="podbor__title display2 medium-weight">Сохраните подбор</div>
+                            <div class="podbor__desc display3">Выберите, куда сохранить ссылку на подбор</div>
+                            <div class="save__socials">
+                                <a href="" class="save__socials-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                                        <g transform="translate(-826 -359)">
+                                            <circle cx="24" cy="24" r="24" transform="translate(826 359)" fill="#07f"/>
+                                            <path d="M22.4,31.664c-8.972,0-14.089-6.405-14.3-17.064h4.494c.148,7.823,3.461,11.137,6.085,11.82V14.6h4.232v6.747c2.591-.29,5.314-3.365,6.232-6.747h4.232a13,13,0,0,1-5.757,8.506,13.344,13.344,0,0,1,6.741,8.558H29.7a8.2,8.2,0,0,0-6.79-6.1v6.1Z" transform="translate(828.771 359.867)" fill="#fff"/>
+                                        </g>
+                                    </svg>
+                                </a>
+                                <a href="" class="save__socials-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                                        <g transform="translate(-826 -359)">
+                                            <circle cx="24" cy="24" r="24" transform="translate(826 359)" fill="#eb722e"/>
+                                            <path d="M14.505,17.44a11.6,11.6,0,0,0,3.6-1.49,1.816,1.816,0,0,0-1.935-3.073,7.866,7.866,0,0,1-8.34,0,1.814,1.814,0,0,0-2.5.565s0,0,0,.005a1.812,1.812,0,0,0,.567,2.5l0,0a11.538,11.538,0,0,0,3.6,1.488L6.028,20.9A1.8,1.8,0,0,0,6,23.439l.03.03a1.8,1.8,0,0,0,2.549,0L12,20.065l3.4,3.406a1.814,1.814,0,0,0,2.566-2.565L14.505,17.44ZM12,12.388A6.194,6.194,0,1,0,5.8,6.2,6.2,6.2,0,0,0,12,12.388Zm0-8.757A2.565,2.565,0,1,1,9.435,6.2,2.567,2.567,0,0,1,12,3.631Z" transform="translate(838.02 371.001)" fill="#fff"/>
+                                        </g>
+                                    </svg>
+                                </a>
+                                <a href="" class="save__socials-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                                        <g transform="translate(-997 -359)">
+                                            <g transform="translate(128)">
+                                                <circle cx="24" cy="24" r="24" transform="translate(869 359)" fill="#64a9dc"/>
+                                            </g>
+                                            <g transform="translate(1009 353.599)">
+                                                <path d="M.409,29.058l5.33,1.989L7.8,37.682a.627.627,0,0,0,1,.3L11.77,35.56a.886.886,0,0,1,1.081-.03l5.359,3.891a.628.628,0,0,0,.984-.38l3.926-18.883a.628.628,0,0,0-.841-.714L.4,27.883A.629.629,0,0,0,.409,29.058Zm7.061.93,10.417-6.416a.182.182,0,0,1,.219.287l-8.6,7.992a1.782,1.782,0,0,0-.552,1.066l-.293,2.17a.269.269,0,0,1-.526.038L7.011,31.168A1.049,1.049,0,0,1,7.47,29.988Z" transform="translate(0)" fill="#fff"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                                <a href="" class="save__socials-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                                        <g transform="translate(-997 -359)">
+                                            <g transform="translate(128)">
+                                                <circle cx="24" cy="24" r="24" transform="translate(869 359)" fill="#65bc54"/>
+                                            </g>
+                                            <path d="M25.308,6.813A13.005,13.005,0,0,0,4.844,22.5L3,29.237l6.892-1.809a13.007,13.007,0,0,0,6.213,1.583h.006a13.006,13.006,0,0,0,9.2-22.2m-9.2,20h0a10.785,10.785,0,0,1-5.5-1.508l-.393-.234-4.09,1.073,1.091-3.987-.256-.408a10.806,10.806,0,1,1,9.155,5.065m5.928-8.094c-.326-.164-1.922-.949-2.22-1.057s-.513-.162-.73.162-.84,1.056-1.03,1.273-.379.243-.7.081a8.874,8.874,0,0,1-2.613-1.612,9.786,9.786,0,0,1-1.807-2.251c-.19-.326-.02-.5.143-.663.146-.145.324-.379.487-.569a2.222,2.222,0,0,0,.324-.542.594.594,0,0,0-.028-.569c-.081-.164-.731-1.763-1-2.413-.262-.63-.53-.546-.73-.555S11.716,10,11.509,10a1.2,1.2,0,0,0-.868.406A3.642,3.642,0,0,0,9.5,13.112a6.327,6.327,0,0,0,1.327,3.361,14.484,14.484,0,0,0,5.55,4.905,19.213,19.213,0,0,0,1.852.685,4.463,4.463,0,0,0,2.046.129,3.342,3.342,0,0,0,2.193-1.544,2.718,2.718,0,0,0,.19-1.545c-.081-.136-.3-.219-.623-.381" transform="translate(1004.944 366.882)" fill="#fff" fill-rule="evenodd"/>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="save__copy copy-text">
+                                <span class="copy-text__value">https://mestosporta.ru/podbor/3823434</span>
+                                <button class="copy-text__btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                                        <path d="M4,2A1,1,0,0,0,5,3h7.5a.5.5,0,0,1,.5.5V11a1,1,0,0,0,2,0V3.5A2.5,2.5,0,0,0,12.5,1H5A1,1,0,0,0,4,2ZM2.5,4h8A1.5,1.5,0,0,1,12,5.5v8A1.5,1.5,0,0,1,10.5,15h-8A1.5,1.5,0,0,1,1,13.5v-8A1.5,1.5,0,0,1,2.5,4ZM3,6v7h7V6Z" transform="translate(-1 -1)" fill="#999" fill-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                                <div class="copy-text__alert">Скопировано</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="places">
+                    <div class="podbor__content">
+                        <div class="container">
+                            <div class="podbor__title display2 medium-weight">Найденные места</div>
+                            <div class="podbor__desc display3">Рекомендуем сохранить подбор, вы всегда сможете вернуться к найденным местам.</div>
+                            <div class="places__tabs">
+                                <div class="places__tabs-wrap">
+                                    <div class="places__tab _active" data-tabs-path="1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                            <g transform="translate(-2 -2)">
+                                                <rect width="6" height="6" transform="translate(3 3)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                <rect width="6" height="6" transform="translate(13 3)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                <rect width="6" height="6" transform="translate(3 13)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                <rect width="6" height="6" transform="translate(13 13)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="places__tab" data-tabs-path="2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.8" height="16" viewBox="0 0 12.8 16">
+                                            <g id="Сгруппировать_3915" data-name="Сгруппировать 3915" transform="translate(-1105 -586.5)">
+                                                <g transform="translate(1105 586.5)">
+                                                    <path d="M8.4,1A6.4,6.4,0,0,0,3.874,11.924c1.158,1.159,3.886,2.836,4.046,4.6a.48.48,0,1,0,.96,0c.16-1.76,2.888-3.437,4.046-4.6A6.4,6.4,0,0,0,8.4,1Z" transform="translate(-2 -1)" fill="#fd6500"/>
+                                                    <path d="M8.14,9.38A2.24,2.24,0,1,0,5.9,7.14,2.24,2.24,0,0,0,8.14,9.38Z" transform="translate(-1.74 -0.74)" fill="#f2f2f3"/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="places__content">
+                            <div class="places__tab-content _active" data-tabs-path="1">
+                                <div class="container">
+                                    <div class="best__slider swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place.webp" alt="">
+
+        
+        <div class="place-card__mark">4.7</div>
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Фитнес-клуб AR City Gym на Мельникова</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _blue"></i>
+        <span>Волоколамская</span>
+    </div>
+</a>
+
+                                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place2.webp" alt="">
+
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Бассейн под открытым небом Чайка</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _red"></i>
+        <span>Парк культуры</span>
+    </div>
+</a>
+
+                                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place3.webp" alt="">
+
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Студия GO SUP</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _blue"></i>
+        <span>Мякинино</span>
+    </div>
+</a>
+
+                                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place4.webp" alt="">
+
+        
+        <div class="place-card__mark">4.7</div>
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Клуб Spirit Fitness у метро Чертановская</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _gray"></i>
+        <span>Чертановская</span>
+    </div>
+</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="places__tab-content" data-tabs-path="2">
+                                <div class="map" id="map">
+
+</div>
+<script type="text/javascript">
+    ymaps.ready(init);
+    const coord = [55.650625, 37.62708]
+
+    function init() {
+        let myMap = new ymaps.Map("map", {
+            center: coord,
+            zoom: 15
+        });
+
+        let myPlacemark = new ymaps.Placemark(coord, null, {
+            iconLayout: 'default#image',
+            iconImageHref: "img/mark.svg",
+            iconImageSize: [45, 58],
+            // iconImageOffset: [-15, -44]
+        });
+        myMap.geoObjects.add(myPlacemark);
+        myMap.behaviors.disable('scrollZoom');
+
+
+        var placemark = new ymaps.Placemark([55.65, 37.625], {
+                balloonContentHeader: ``,
+                balloonContentBody: `
+                <a href="" class="place-card">
+                    <div class="place-card__img">
+                        <img src="img/place.webp" alt="">
+                    </div>
+                    <div class="place-card__content">
+                        <div class="place-card__title display3 medium-weight">Фитнес-клуб AR City Gym на Мельникова</div>
+                        <div class="place-card__metro">
+                            <i class="place-card__metro-icon _blue"></i>
+                            <span>Волоколамская</span>
+                        </div>
+                    </div>
+                </a>
+                `,
+                balloonContentFooter: '',
+                hintContent: 'Фитнес-клуб AR City Gym на \n' +
+                    'Мельникова',
+
+            },
+            {
+                iconLayout: 'default#image',
+                iconImageHref: "img/pin.svg",
+                iconImageSize: [45, 45],
+            }
+        );
+        myMap.geoObjects.add(placemark);
+
+
+        var placemark2 = new ymaps.Placemark([55.645, 37.625], {
+                balloonContentHeader: ``,
+                balloonContentBody: `
+                <a href="" class="place-card">
+                    <div class="place-card__img">
+                        <img src="img/place2.webp" alt="">
+                    </div>
+                    <div class="place-card__content">
+                        <div class="place-card__title display3 medium-weight">Фитнес-клуб AR City Gym на Мельникова</div>
+                        <div class="place-card__metro">
+                            <i class="place-card__metro-icon _red"></i>
+                            <span>Волоколамская</span>
+                        </div>
+                    </div>
+                </a>
+                `,
+                balloonContentFooter: '',
+                hintContent: 'Фитнес-клуб AR City Gym на \n' +
+                    'Мельникова',
+
+            },
+            {
+                iconLayout: 'default#image',
+                iconImageHref: "img/pin.svg",
+                iconImageSize: [45, 45],
+            }
+        );
+        myMap.geoObjects.add(placemark2);
+    }
+</script>
+
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="places__nav">
+                                <button class="_save-results places__btn mbtn mbtn-primary medium-weight medium-text">
+                                    Сохранить подбор
+                                </button>
+                                <button class="places__btn _first-step mbtn mbtn-gray-outline medium-weight medium-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                        <path id="retry-svgrepo-com" d="M14.955,7.986l.116.01a1,1,0,0,1,.849,1.131A8,8,0,0,1,2.547,13.854l-.84.84A1,1,0,0,1,0,13.987V10H3.987a1,1,0,0,1,.707,1.707l-.731.731A6,6,0,0,0,13.94,8.845,1,1,0,0,1,15.071,8ZM11.514.813a8,8,0,0,1,1.942,1.336l.837-.837A1,1,0,0,1,16,2.019V6H12.019a1,1,0,0,1-.707-1.707l.728-.729A6,6,0,0,0,2.06,7.155,1,1,0,1,1,.08,6.874,8,8,0,0,1,11.514.813Z"/>
+                                    </svg>
+                                    <span>Начать заново</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+        <footer class="footer">
+            <div class="footer-top">
+    <div class="container">
+        <div class="footer-top__inner">
+            <a href="" class="footer__logo logo">
+                <img src="img/logo3.svg" alt="">
+            </a>
+            <div class="footer__links">
+                <a href="" class="footer__link">О проекте</a>
+                <a href="" class="footer__link">Партнерам</a>
+                <a href="" class="footer__link">Реклама</a>
+                <a href="" class="footer__link">Обратная связь</a>
+                <a href="" class="footer__link">Пользовательское соглашение</a>
+                <a href="" class="footer__link">Добавить место</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <div class="container">
+        <div class="footer-bottom__inner">
+            <div class="footer__links2">
+                <a href="" class="footer__link2">Политика конфиденциальности</a>
+                <a href="" class="footer__link2">Оферта</a>
+            </div>
+            <div class="footer__social">
+                <a href="mailto:info@sportfind.ru" class="footer__social-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.651" height="11.5" viewBox="0 0 15.651 11.5">
+                        <g transform="translate(-0.174 -0.25)">
+                            <path d="M14,1H2A1,1,0,0,0,1,2v8a1,1,0,0,0,1,1H14a1,1,0,0,0,1-1V2A1,1,0,0,0,14,1Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                            <path d="M14.774,1.367,9.345,5.543a2.205,2.205,0,0,1-2.689,0L1.226,1.367" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                    <span>info@sportfind.ru</span>
+                </a>
+                <a href="" class="footer__social-item">
+                    <svg id="telegram" xmlns="http://www.w3.org/2000/svg" width="16.581" height="16.581" viewBox="0 0 16.581 16.581">
+                        <path d="M8.291,0A8.291,8.291,0,1,1,0,8.291,8.291,8.291,0,0,1,8.291,0Z"/>
+                        <path d="M5.3,10.344,13.3,7.262c.371-.134.7.091.575.651h0l-1.361,6.412c-.1.455-.371.565-.749.351L9.69,13.148l-1,.963a.523.523,0,0,1-.418.2l.147-2.109,3.841-3.47c.167-.147-.037-.23-.258-.084L7.256,11.641,5.209,11c-.444-.141-.454-.444.094-.658Z" transform="translate(-1.51 -2.233)" fill="#fff"/>
+                    </svg>
+                    <span>Мы в Telegram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </footer>
+    </div>
+
+    <div class="modal" id="cityModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Выбор города</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="city-select">
+                <div class="modal__title display2 medium-weight">Выберите город</div>
+                <div class="city-select__items">
+                    <div class="city-select__item display3">Москва и область</div>
+                    <div class="city-select__item display3">Санкт-Петербург</div>
+                    <div class="city-select__item display3">Сочи</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="loginModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Вход</div>
+                <div class="auth__desc medium-text">Войдите с помощью вашей почты или логина</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Электронная почта / Логин</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Ваш пароль</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Войти</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Зарегистрироваться</button>
+
+                        <button type="button" class="auth__form-forgot small-text">Забыли пароль?</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="regModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Регистрация</div>
+                <div class="auth__desc medium-text">Пройдите регистрацию</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Логин</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="email">
+                        <label>Электронная почта</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Пароль</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Повтор пароля</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Зарегистрироваться</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Войти</button>
+
+                        <div class="auth__form-hint small-text">
+                            Продолжая, вы принимаете <a href="">условия</a> передачи
+                            информации и <a href="">пользовательского соглашения</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="passModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Сброс пароля</div>
+                <div class="auth__desc medium-text">Укажите логин или адрес электронной почты для сброса нового пароля.</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Электронная почта / Логин</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Отправить пароль</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="personalModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Персональное меню</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="personal">
+                <div class="personal__img img-upload">
+                    <input type="file">
+                    <label></label>
+                </div>
+
+                <div class="personal__img img-upload">
+                    <input type="file">
+                    <label></label>
+
+                    <div class="img-upload__result">
+                        <img src="img/avatar.webp" alt="">
+                        <button class="img-upload__remove mbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" transform="translate(12 12)" fill="#fff" fill-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="personal__title display2 medium-weight">Eco-wheel</div>
+                <div class="personal__links">
+                    <a href="" class="personal__link display3">Настройки профиля</a>
+                    <a href="" class="personal__link display3">Избранное</a>
+                    <a href="" class="personal__link personal__logout display3">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="consultModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Фитнес-клуб AR City Gym на Мельникова</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Получить консультацию</div>
+                <div class="auth__desc medium-text">Для получения консультации заполните и отправьте
+                    заявку, менеджер данного места свяжется с вами
+                    в ближайшее рабочее время.</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Имя</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="tel">
+                        <label>Телефон</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Заказать консультацию</button>
+                        <button data-modal="telegramModal" type="button" class="_telegram auth__form-btn mbtn mbtn-black medium-weight medium-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18.52" height="18.52" viewBox="0 0 18.52 18.52">
+                                <path d="M9.26,0A9.26,9.26,0,1,1,0,9.26,9.26,9.26,0,0,1,9.26,0Z" fill="#fff"/>
+                                <path d="M5.352,10.709l8.928-3.442c.414-.15.776.1.642.728h0L13.4,15.155c-.113.508-.414.631-.836.392l-2.315-1.706L9.135,14.917a.584.584,0,0,1-.467.228l.164-2.356,4.291-3.876c.187-.164-.042-.257-.288-.093l-5.3,3.338-2.286-.713c-.5-.157-.507-.5.1-.735Z" transform="translate(-1.115 -1.649)"/>
+                            </svg>
+                            <span>Консультация через Telegram</span>
+                        </button>
+                    </div>
+
+
+                </form>
+                <div class="auth__form-hint small-text">
+                    Нажимая на кнопку «Заказать консультацию», вы <br>
+                    принимаете <a href="">условия передачи информации</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="telegramModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Фитнес-клуб AR City Gym на Мельникова</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Получить консультацию</div>
+                <div class="auth__desc medium-text">
+                    Если вы не хотите, чтобы вам звонили, вы можете
+                    получить консультацию через месенджер Telegram
+                </div>
+
+                <div class="auth__telegram">
+                    <img src="img/telegram.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+<!--<script type="text/javascript">-->
+<!--    ymaps.ready(init);-->
+<!--    const coord = [54.017310, 38.074447]-->
+
+<!--    function init() {-->
+<!--        var myMap = new ymaps.Map("map", {-->
+<!--            center: coord,-->
+<!--            zoom: 15-->
+<!--        });-->
+
+<!--        var myPlacemark = new ymaps.Placemark(coord, null, {-->
+<!--            iconLayout: 'default#image',-->
+<!--            iconImageHref: "img/pin.svg",-->
+<!--            iconImageSize: [48, 59],-->
+<!--            // iconImageOffset: [-15, -44]-->
+<!--        });-->
+<!--        myMap.geoObjects.add(myPlacemark);-->
+<!--        myMap.behaviors.disable('scrollZoom');-->
+
+<!--    }-->
+<!--</script>-->
+
+</body>
+
+</html>

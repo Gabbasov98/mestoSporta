@@ -1,0 +1,643 @@
+<!DOCTYPE html> <html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9133eb49-3a97-4b2d-90be-6b80a97a5036" type="text/javascript"></script>
+    <title>Главная</title>
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+    <div class="header__inner">
+        <a href="/" class="header__logo logo">
+            <img src="img/logo.svg" alt="">
+        </a>
+        <button class="header__burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header__mob">
+            <div class="header__city">
+                <button data-modal="cityModal" class="city__toggle small-text">
+                    <span>Москва</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9.917" height="5.601" viewBox="0 0 9.917 5.601">
+                        <path d="M8.8,1,5.082,4.714a.26.26,0,0,1-.367,0L1,1" transform="translate(0.061 0.061)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                </button>
+
+                <div class="city-ask city-ask--activee">
+                    <div class="city-ask__top">
+                        <div class="city-ask__title display3 medium-weight">Ваш город — Москва</div>
+                        <div class="city-ask__desc medium-text">Московская область</div>
+                    </div>
+                    <div class="city-ask__bottom">
+                        <button data-modal="cityModal" class="city-ask__btn _change-city mbtn mbtn-transparent">Изменить</button>
+                        <button class="city-ask__btn _confirm-city mbtn mbtn-black">Да, все верно</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header__buttons">
+                <button class="header__btn header__reg mbtn mbtn-black small-text medium-weight">Регистрация</button>
+                <button class="header__btn header__login mbtn mbtn-transparent small-text medium-weight">Войти</button>
+            </div>
+
+            <nav class="nav">
+                <a href="" class="nav__link display3">О проекте</a>
+                <a href="" class="nav__link display3">Партнерам</a>
+                <a href="" class="nav__link display3">Реклама</a>
+                <a href="" class="nav__link display3">Обратная связь</a>
+                <a href="" class="nav__link display3">Пользовательское соглашение</a>
+                <a href="" class="nav__link display3">Добавить место</a>
+            </nav>
+
+            <div class="header__socials">
+                <div class="header__socials-title medium-weight">Связаться с нами</div>
+                <a href="" class="header__socials-link display3">info@sportfind.ru</a>
+                <div class="header__socials-desc display3">Мы в Telegram</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </header>
+        <main class="content">
+
+            <section class="main">
+                <div class="container">
+                    <div class="main__inner">
+                        <h1 class="main__title display1 medium-weight">Поиск <br> спортивных мест <br> в вашем городе</h1>
+                        <div class="main__desc big-text">Подберите для себя фитнес-клуб, студию или бассейн недалеко от дома или работы</div>
+                        <div class="main__buttons">
+                            <a href="" class="main__btn mbtn mbtn-black medium-weight display3">Начать подбор</a>
+                            <a href="" class="main__btn mbtn mbtn-primary medium-weight display3">
+                                <span>Как это работает</span>
+                                <span class="main__btn-play">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7.021" height="9.616" viewBox="0 0 7.021 9.616">
+                                      <path d="M200.711,170.9a.824.824,0,0,1-.311-.089.685.685,0,0,1-.4-.578v-8.31a.685.685,0,0,1,.4-.578.8.8,0,0,1,.711.044l5.643,4.177a.667.667,0,0,1,0,1.066l-5.643,4.177A1.3,1.3,0,0,1,200.711,170.9Z" transform="translate(-200 -161.285)" fill="#fff"/>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="best">
+                <div class="container">
+                    <div class="best__top">
+                        <div class="best__title display2 medium-weight">Собрали в одном месте лучшие
+                            спортивные услуги</div>
+                        <div class="best__desc big-text">Объединили спортивные секции, фитнес-клубы, студии и бассейны крупнейших городов России.
+                            Выбирайте любой спорт из множества существующих, и будь то футбол, хоккей или танцы,
+                            положите начало тренировкам в один клик.</div>
+                        <img src="img/mesto.svg" alt="" class="best__img">
+                    </div>
+
+                    <div class="best__slider swiper-container">
+                        <div class="swiper-wrapper">
+                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place.webp" alt="">
+
+        
+        <div class="place-card__mark">4.7</div>
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Фитнес-клуб AR City Gym на Мельникова</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _blue"></i>
+        <span>Волоколамская</span>
+    </div>
+</a>
+
+                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place2.webp" alt="">
+
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Бассейн под открытым небом Чайка</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _red"></i>
+        <span>Парк культуры</span>
+    </div>
+</a>
+
+                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place3.webp" alt="">
+
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Студия GO SUP</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _blue"></i>
+        <span>Мякинино</span>
+    </div>
+</a>
+
+                            <a href="" class="place-card swiper-slide">
+    <div class="place-card__img">
+        <img src="img/place4.webp" alt="">
+
+        
+        <div class="place-card__mark">4.7</div>
+        
+    </div>
+    <div class="place-card__title display3 medium-weight">Клуб Spirit Fitness у метро Чертановская</div>
+    <div class="place-card__metro">
+        <i class="place-card__metro-icon _gray"></i>
+        <span>Чертановская</span>
+    </div>
+</a>
+
+                        </div>
+                    </div>
+                    <div class="best__bottom">
+                        <a href="" class="best__link arrow-link display3 medium-weight">
+                            <span>Подобрать место</span>
+                            <span class="arrow-link__round">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8.569" height="14.206" viewBox="0 0 8.569 14.206">
+                                  <path d="M13.75,9.726,6.6,16.871,5.181,15.449l5.713-5.715L5.185,4.1,6.6,2.665,13.75,9.724Z" transform="translate(-5.181 -2.665)" fill-rule="evenodd"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="direction">
+                <div class="container">
+                    <div class="direction__title display2 medium-weight">Направления занятий</div>
+                    <div class="direction__desc big-text">Пробуйте разное и выбирайте то, что нужно вашему телу сейчас. Можно ходить на йогу, кроссфит, в бассейн и на другие спортивные направления. А еще — на массаж и бьюти-процедуры.</div>
+                    <div class="direction__slider">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <a href="" class="direction-card swiper-slide">
+    <div class="direction-card__img">
+        <img src="img/direction.webp" alt="">
+    </div>
+    <div class="direction-card__title display3 medium-weight">Бассейн</div>
+</a>
+
+                                <a href="" class="direction-card swiper-slide">
+    <div class="direction-card__img">
+        <img src="img/direction2.webp" alt="">
+    </div>
+    <div class="direction-card__title display3 medium-weight">Единоборства</div>
+</a>
+
+                                <a href="" class="direction-card swiper-slide">
+    <div class="direction-card__img">
+        <img src="img/direction3.webp" alt="">
+    </div>
+    <div class="direction-card__title display3 medium-weight">Тренажерный зал</div>
+</a>
+
+                                <a href="" class="direction-card swiper-slide">
+    <div class="direction-card__img">
+        <img src="img/direction4.webp" alt="">
+    </div>
+    <div class="direction-card__title display3 medium-weight">Йога</div>
+</a>
+
+                                <a href="" class="direction-card swiper-slide">
+    <div class="direction-card__img">
+        <img src="img/direction5.webp" alt="">
+    </div>
+    <div class="direction-card__title display3 medium-weight">Outdoor-тренировки</div>
+</a>
+
+                                <a href="" class="direction-card swiper-slide">
+    <div class="direction-card__img">
+        <img src="img/direction5.webp" alt="">
+    </div>
+    <div class="direction-card__title display3 medium-weight">Outdoor-тренировки</div>
+</a>
+
+                                <a href="" class="direction-card swiper-slide">
+    <div class="direction-card__img">
+        <img src="img/direction5.webp" alt="">
+    </div>
+    <div class="direction-card__title display3 medium-weight">Outdoor-тренировки</div>
+</a>
+
+                            </div>
+                        </div>
+                        <div class="swiper-button-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8.569" height="14.206" viewBox="0 0 8.569 14.206">
+                                <path d="M13.75,9.726,6.6,16.871,5.181,15.449l5.713-5.715L5.185,4.1,6.6,2.665,13.75,9.724Z" transform="translate(-5.181 -2.665)" fill-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <footer class="footer">
+            <div class="footer-top">
+    <div class="container">
+        <div class="footer-top__inner">
+            <a href="" class="footer__logo logo">
+                <img src="img/logo3.svg" alt="">
+            </a>
+            <div class="footer__links">
+                <a href="" class="footer__link">О проекте</a>
+                <a href="" class="footer__link">Партнерам</a>
+                <a href="" class="footer__link">Реклама</a>
+                <a href="" class="footer__link">Обратная связь</a>
+                <a href="" class="footer__link">Пользовательское соглашение</a>
+                <a href="" class="footer__link">Добавить место</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <div class="container">
+        <div class="footer-bottom__inner">
+            <div class="footer__links2">
+                <a href="" class="footer__link2">Политика конфиденциальности</a>
+                <a href="" class="footer__link2">Оферта</a>
+            </div>
+            <div class="footer__social">
+                <a href="mailto:info@sportfind.ru" class="footer__social-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.651" height="11.5" viewBox="0 0 15.651 11.5">
+                        <g transform="translate(-0.174 -0.25)">
+                            <path d="M14,1H2A1,1,0,0,0,1,2v8a1,1,0,0,0,1,1H14a1,1,0,0,0,1-1V2A1,1,0,0,0,14,1Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                            <path d="M14.774,1.367,9.345,5.543a2.205,2.205,0,0,1-2.689,0L1.226,1.367" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                        </g>
+                    </svg>
+                    <span>info@sportfind.ru</span>
+                </a>
+                <a href="" class="footer__social-item">
+                    <svg id="telegram" xmlns="http://www.w3.org/2000/svg" width="16.581" height="16.581" viewBox="0 0 16.581 16.581">
+                        <path d="M8.291,0A8.291,8.291,0,1,1,0,8.291,8.291,8.291,0,0,1,8.291,0Z"/>
+                        <path d="M5.3,10.344,13.3,7.262c.371-.134.7.091.575.651h0l-1.361,6.412c-.1.455-.371.565-.749.351L9.69,13.148l-1,.963a.523.523,0,0,1-.418.2l.147-2.109,3.841-3.47c.167-.147-.037-.23-.258-.084L7.256,11.641,5.209,11c-.444-.141-.454-.444.094-.658Z" transform="translate(-1.51 -2.233)" fill="#fff"/>
+                    </svg>
+                    <span>Мы в Telegram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </footer>
+    </div>
+
+    <div class="modal" id="cityModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Выбор города</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="city-select">
+                <div class="modal__title display2 medium-weight">Выберите город</div>
+                <div class="city-select__items">
+                    <div class="city-select__item display3">Москва и область</div>
+                    <div class="city-select__item display3">Санкт-Петербург</div>
+                    <div class="city-select__item display3">Сочи</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="loginModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Вход</div>
+                <div class="auth__desc medium-text">Войдите с помощью вашей почты или логина</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Электронная почта / Логин</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Ваш пароль</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Войти</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Зарегистрироваться</button>
+
+                        <button type="button" class="auth__form-forgot small-text">Забыли пароль?</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="regModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Регистрация</div>
+                <div class="auth__desc medium-text">Пройдите регистрацию</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Логин</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="email">
+                        <label>Электронная почта</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Пароль</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password">
+                        <label>Повтор пароля</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Зарегистрироваться</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Войти</button>
+
+                        <div class="auth__form-hint small-text">
+                            Продолжая, вы принимаете <a href="">условия</a> передачи
+                            информации и <a href="">пользовательского соглашения</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="passModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Авторизация</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Сброс пароля</div>
+                <div class="auth__desc medium-text">Укажите логин или адрес электронной почты для сброса нового пароля.</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Электронная почта / Логин</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Отправить пароль</button>
+                        <button type="button" class="auth__form-btn mbtn mbtn-black medium-weight medium-text">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="personalModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Персональное меню</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="personal">
+                <div class="personal__img img-upload">
+                    <input type="file">
+                    <label></label>
+                </div>
+
+                <div class="personal__img img-upload">
+                    <input type="file">
+                    <label></label>
+
+                    <div class="img-upload__result">
+                        <img src="img/avatar.webp" alt="">
+                        <button class="img-upload__remove mbtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" transform="translate(12 12)" fill="#fff" fill-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="personal__title display2 medium-weight">Eco-wheel</div>
+                <div class="personal__links">
+                    <a href="" class="personal__link display3">Настройки профиля</a>
+                    <a href="" class="personal__link display3">Избранное</a>
+                    <a href="" class="personal__link personal__logout display3">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="consultModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Фитнес-клуб AR City Gym на Мельникова</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Получить консультацию</div>
+                <div class="auth__desc medium-text">Для получения консультации заполните и отправьте
+                    заявку, менеджер данного места свяжется с вами
+                    в ближайшее рабочее время.</div>
+
+                <form action="" class="auth__form">
+                    <fieldset class="form-group">
+                        <input type="text">
+                        <label>Имя</label>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="tel">
+                        <label>Телефон</label>
+                    </fieldset>
+
+                    <div class="auth__form-buttons">
+                        <button class="auth__form-btn mbtn mbtn-primary medium-weight medium-text">Заказать консультацию</button>
+                        <button data-modal="telegramModal" type="button" class="_telegram auth__form-btn mbtn mbtn-black medium-weight medium-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18.52" height="18.52" viewBox="0 0 18.52 18.52">
+                                <path d="M9.26,0A9.26,9.26,0,1,1,0,9.26,9.26,9.26,0,0,1,9.26,0Z" fill="#fff"/>
+                                <path d="M5.352,10.709l8.928-3.442c.414-.15.776.1.642.728h0L13.4,15.155c-.113.508-.414.631-.836.392l-2.315-1.706L9.135,14.917a.584.584,0,0,1-.467.228l.164-2.356,4.291-3.876c.187-.164-.042-.257-.288-.093l-5.3,3.338-2.286-.713c-.5-.157-.507-.5.1-.735Z" transform="translate(-1.115 -1.649)"/>
+                            </svg>
+                            <span>Консультация через Telegram</span>
+                        </button>
+                    </div>
+
+
+                </form>
+                <div class="auth__form-hint small-text">
+                    Нажимая на кнопку «Заказать консультацию», вы <br>
+                    принимаете <a href="">условия передачи информации</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="telegramModal">
+    <div class="container">
+        <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Фитнес-клуб AR City Gym на Мельникова</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    </div>
+
+    <div class="modal__scroll">
+        <div class="container">
+            <div class="auth">
+                <div class="modal__title display2 medium-weight">Получить консультацию</div>
+                <div class="auth__desc medium-text">
+                    Если вы не хотите, чтобы вам звонили, вы можете
+                    получить консультацию через месенджер Telegram
+                </div>
+
+                <div class="auth__telegram">
+                    <img src="img/telegram.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+<!--<script type="text/javascript">-->
+<!--    ymaps.ready(init);-->
+<!--    const coord = [54.017310, 38.074447]-->
+
+<!--    function init() {-->
+<!--        var myMap = new ymaps.Map("map", {-->
+<!--            center: coord,-->
+<!--            zoom: 15-->
+<!--        });-->
+
+<!--        var myPlacemark = new ymaps.Placemark(coord, null, {-->
+<!--            iconLayout: 'default#image',-->
+<!--            iconImageHref: "img/pin.svg",-->
+<!--            iconImageSize: [48, 59],-->
+<!--            // iconImageOffset: [-15, -44]-->
+<!--        });-->
+<!--        myMap.geoObjects.add(myPlacemark);-->
+<!--        myMap.behaviors.disable('scrollZoom');-->
+
+<!--    }-->
+<!--</script>-->
+
+</body>
+
+</html>
