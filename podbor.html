@@ -14,62 +14,22 @@
 
 <body>
     <div class="wrapper">
-        <header class="header">
-            <div class="container">
-    <div class="header__inner">
-        <a href="/" class="header__logo logo">
-            <img src="img/logo.svg" alt="">
-        </a>
-        <button class="header__burger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="container podbor__header">
+            <div class="modal__top">
+    <a href="" class="modal__logo logo">
+        <img src="img/logo.svg" alt="">
+    </a>
+    <span class="modal__top-title display3">Подбор мест</span>
+    <div class="modal__top-right">
+        <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M15.707,1.707A1,1,0,0,0,14.293.293L8,6.586,1.707.293A1,1,0,0,0,.293,1.707L6.586,8,.293,14.293a1,1,0,0,0,1.414,1.414L8,9.414l6.293,6.293a1,1,0,0,0,1.414-1.414L9.414,8Z" fill="#3a3a3a" fill-rule="evenodd"/>
+            </svg>
         </button>
-        <div class="header__mob">
-            <div class="header__city">
-                <button data-modal="cityModal" class="city__toggle small-text">
-                    <span>Москва</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9.917" height="5.601" viewBox="0 0 9.917 5.601">
-                        <path d="M8.8,1,5.082,4.714a.26.26,0,0,1-.367,0L1,1" transform="translate(0.061 0.061)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                    </svg>
-                </button>
-
-                <div class="city-ask city-ask--activee">
-                    <div class="city-ask__top">
-                        <div class="city-ask__title display3 medium-weight">Ваш город — Москва</div>
-                        <div class="city-ask__desc medium-text">Московская область</div>
-                    </div>
-                    <div class="city-ask__bottom">
-                        <button data-modal="cityModal" class="city-ask__btn _change-city mbtn mbtn-transparent">Изменить</button>
-                        <button class="city-ask__btn _confirm-city mbtn mbtn-black">Да, все верно</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="header__buttons">
-                <button class="header__btn header__reg mbtn mbtn-black small-text medium-weight">Регистрация</button>
-                <button class="header__btn header__login mbtn mbtn-transparent small-text medium-weight">Войти</button>
-            </div>
-
-            <nav class="nav">
-                <a href="" class="nav__link display3">О проекте</a>
-                <a href="" class="nav__link display3">Партнерам</a>
-                <a href="" class="nav__link display3">Реклама</a>
-                <a href="" class="nav__link display3">Обратная связь</a>
-                <a href="" class="nav__link display3">Пользовательское соглашение</a>
-                <a href="" class="nav__link display3">Добавить место</a>
-            </nav>
-
-            <div class="header__socials">
-                <div class="header__socials-title medium-weight">Связаться с нами</div>
-                <a href="" class="header__socials-link display3">info@sportfind.ru</a>
-                <div class="header__socials-desc display3">Мы в Telegram</div>
-            </div>
-        </div>
     </div>
 </div>
 
-        </header>
+        </div>
         <main class="content">
 
             <section class="podbor">
@@ -1052,55 +1012,6 @@
             </section>
 
         </main>
-        <footer class="footer">
-            <div class="footer-top">
-    <div class="container">
-        <div class="footer-top__inner">
-            <a href="" class="footer__logo logo">
-                <img src="img/logo3.svg" alt="">
-            </a>
-            <div class="footer__links">
-                <a href="" class="footer__link">О проекте</a>
-                <a href="" class="footer__link">Партнерам</a>
-                <a href="" class="footer__link">Реклама</a>
-                <a href="" class="footer__link">Обратная связь</a>
-                <a href="" class="footer__link">Пользовательское соглашение</a>
-                <a href="" class="footer__link">Добавить место</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="footer-bottom">
-    <div class="container">
-        <div class="footer-bottom__inner">
-            <div class="footer__links2">
-                <a href="" class="footer__link2">Политика конфиденциальности</a>
-                <a href="" class="footer__link2">Оферта</a>
-            </div>
-            <div class="footer__social">
-                <a href="mailto:info@sportfind.ru" class="footer__social-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15.651" height="11.5" viewBox="0 0 15.651 11.5">
-                        <g transform="translate(-0.174 -0.25)">
-                            <path d="M14,1H2A1,1,0,0,0,1,2v8a1,1,0,0,0,1,1H14a1,1,0,0,0,1-1V2A1,1,0,0,0,14,1Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                            <path d="M14.774,1.367,9.345,5.543a2.205,2.205,0,0,1-2.689,0L1.226,1.367" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                        </g>
-                    </svg>
-                    <span>info@sportfind.ru</span>
-                </a>
-                <a href="" class="footer__social-item">
-                    <svg id="telegram" xmlns="http://www.w3.org/2000/svg" width="16.581" height="16.581" viewBox="0 0 16.581 16.581">
-                        <path d="M8.291,0A8.291,8.291,0,1,1,0,8.291,8.291,8.291,0,0,1,8.291,0Z"/>
-                        <path d="M5.3,10.344,13.3,7.262c.371-.134.7.091.575.651h0l-1.361,6.412c-.1.455-.371.565-.749.351L9.69,13.148l-1,.963a.523.523,0,0,1-.418.2l.147-2.109,3.841-3.47c.167-.147-.037-.23-.258-.084L7.256,11.641,5.209,11c-.444-.141-.454-.444.094-.658Z" transform="translate(-1.51 -2.233)" fill="#fff"/>
-                    </svg>
-                    <span>Мы в Telegram</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-        </footer>
     </div>
 
     <div class="modal" id="cityModal">
